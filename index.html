@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ASTA XITRS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      background: #121217;
+      font-family: 'Audiowide', cursive, sans-serif;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: none; /* نخفي مؤشر الماوس الأصلي */
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 5rem;
+      text-shadow: 0 0 10px #ffffff, 0 0 30px #ffffff;
+      margin-top: 40px;
+      display: flex;
+      gap: 15px;
+      font-weight: bold;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 60px;
+    }
+
+    .button {
+      background-color: #ff0000;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.7rem;
+      border: none;
+      border-radius: 30px;
+      padding: 20px 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff0000, inset 0 0 10px #ff4b4b;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ff4b4b, inset 0 0 15px #ff6b6b;
+    }
+
+    /* الشعاع الأبيض اللامع خلف المؤشر */
+    #cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.1s ease, height 0.1s ease;
+      mix-blend-mode: screen;
+      z-index: 9999;
+      filter:
+        drop-shadow(0 0 8px #ffffff)
+        drop-shadow(0 0 15px #ffffff)
+        drop-shadow(0 0 20px #ffffff);
+    }
+  </style>
+</head>
+<body>
+
+  <h1><span>ASTA</span><span>XITRS</span></h1>
+
+  <div class="button-container">
+    <button class="button" onclick="openLink('https://discord.gg/AM63mVrJE7')">FREE PANEL</button>
+    <button class="button" onclick="openLink('https://discord.gg/AM63mVrJE7')">DISCORD SERVER</button>
+    <button class="button" onclick="openLink('https://www.youtube.com/')">YOUTUBE CHANNEL</button>
+  </div>
+
+  <div id="cursor"></div>
+
+  <script>
+    function openLink(url) {
+      window.open(url, '_blank');
+    }
+
+    const cursor = document.getElementById('cursor');
+    window.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+  </script>
+
+</body>
+</html>
